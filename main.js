@@ -3,4 +3,51 @@ const accessKey = 'ignoBT9iZvBzX3rMfHHu2E1q4HfTxDw8xDpKN4DWzyQ'
 const inputEl = document.querySelector('#image_search_app_search_images')
 const searchBtn = document.querySelector('#search_image_button')
 const imagesContainer = document.querySelector('#image_search_app_results')
-const showMoreBtn = document.querySelector('#button_show_more')
+const showMoreBtn = document.getElementById('button_show_more')
+
+let page = 1
+let inputData = ''
+
+async function searchImages () {
+  inputData = inputEl.value
+  const url = `https://api.unsplash.com/search/photos?page=${page}&query=${inputData}&client_id=${accessKey}`
+
+  const response = await fetch(url)
+  const data = await response.json()
+
+  const results = data.results
+  console.log(results)
+
+  if (page === 1) {
+    imagesContainer.innerHTML = ''
+  }
+
+  results.map(result => {
+    const imageWrapper = document.createElement('div')
+    imageWrapper.classList.add('image_search_app_results_container')
+    const image = document.createElement('img')
+    image.src = result.urls.small
+    const imageLink = document.createElement('a')
+    imageLink.href = result.links.html
+    imageLink.textContent = result.alt_description
+    imageLink.target = '_blank'
+
+    imageWrapper.appendChild(image)
+    imageWrapper.appendChild(imageLink)
+    imagesContainer.appendChild(imageWrapper)
+  })
+  page++
+
+  if (page > 1) {
+    showMoreBtn.style.display = 'block'
+  }
+}
+
+searchBtn.addEventListener('click', () => {
+  page = 1
+  searchImages()
+})
+
+showMoreBtn.addEventListener('click', () => {
+  searchImages()
+})
