@@ -13,14 +13,21 @@ body {
   font-family: "Times New Roman", Times, serif;
 }
 
+img {
+  max-width: 100%;
+  object-fit: cover;
+  height: 200px;
+}
+
 .projects_wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
+  grid-template-columns: repeat(4, 1fr);
   padding: 20px;
 }
 
 .projects_wrapper h1 {
-  grid-column: 1 / span 3;
+  grid-column: 2 / span 2;
   margin: 10px auto;
   font-size: 4rem;
   text-align: center;
@@ -30,4 +37,76 @@ body {
   color: rgba(255, 68, 0, 0.802);
   letter-spacing: 0.2rem;
   text-transform: uppercase;
+}
+
+.image_searcher_container {
+  padding: 10px;
+  margin-top: 20px;
+  display: grid;
+  grid-column: 1 / span 2;
+  place-content: center;
+  background: rgba(239, 199, 184, 0.802);
+  border-radius: 5px;
+}
+
+.image_searcher_header {
+  margin: 5px auto;
+  font-size: 3rem;
+  padding-bottom: 5px;
+  border-bottom: 1.5px solid black;
+  letter-spacing: 0.3rem;
+}
+
+form {
+  padding: 20px 10px;
+  margin: 0 auto;
+  width: 400px;
+
+}
+
+#image_search_app_search_images {
+  padding: 8px 5px;
+  width: 70%;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+
+}
+
+#search_image_button {
+  padding: 8px 20px;
+  font-size: 1.5rem;
+  border: none;
+  cursor: pointer;
+  background-color: rgb(80, 245, 245);
+  border-radius: 5px;
+  margin-left: 10px;
+  text-transform: uppercase;
+  color: black
+}
+
+#search_image_button:hover {
+  background-color: rgba(255, 68, 0, 0.801);
+}
+
+#image_search_app_results {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.3);
+
+
+}
+
+.image_search_app_results_container {
+  border: 1px solid black;
+}
+
+.image_search_app_details {
+  font-size: 2rem;
+  padding: 5px;
+
 }
