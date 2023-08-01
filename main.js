@@ -1,3 +1,5 @@
+//SEARCH IMAGE APP
+
 const accessKey = 'ignoBT9iZvBzX3rMfHHu2E1q4HfTxDw8xDpKN4DWzyQ'
 
 const inputEl = document.querySelector('#image_search_app_search_images')
@@ -50,4 +52,24 @@ searchBtn.addEventListener('click', () => {
 
 showMoreBtn.addEventListener('click', () => {
   searchImages()
+})
+
+//END OF THE SEARCH IMAGE APP
+
+const memeBtn = document.querySelector('#generate-meme')
+const memeTitle = document.querySelector('#meme-title')
+const memeImage = document.querySelector('#meme-image')
+const memeDesc = document.querySelector('#meme-description')
+
+async function generateMeme () {
+  const response = await fetch('https://meme-api.com/gimme/wholesomememes')
+  const data = await response.json()
+
+  memeTitle.textContent = ` Title: ${data.title}`
+  memeImage.src = data.url
+  memeDesc.textContent = `Meme by: ${data.author}`
+}
+memeBtn.addEventListener('click', e => {
+  e.preventDefault()
+  generateMeme()
 })

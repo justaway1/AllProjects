@@ -30,12 +30,13 @@ a {
 .projects_wrapper {
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   padding: 20px;
+  gap: 3rem;
 }
 
 .projects_wrapper h1 {
-  grid-column: 2 / span 2;
+  grid-column: 1 / span 3;
   margin: 10px auto;
   font-size: 4rem;
   text-align: center;
@@ -50,16 +51,16 @@ a {
 .image_searcher_container {
   padding: 10px;
   margin-top: 20px;
-  display: grid;
-  grid-column: 1 / span 2;
   place-content: center;
-  background: rgba(239, 199, 184, 0.802);
+  grid-column: 1 / span 2;
+  background: rgba(237, 235, 234, 0.802);
   border-radius: 5px;
 
 }
 
 .image_searcher_header {
   margin: 5px auto;
+  text-align: center;
   font-size: 3rem;
   padding-bottom: 5px;
   border-bottom: 1.5px solid black;
@@ -107,7 +108,6 @@ form {
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.3);
 
 
 }
@@ -117,7 +117,6 @@ form {
   display: flex;
   flex: 0 0 22%;
   flex-direction: column;
-  border: 1px solid black;
 }
 
 .image_search_app_details {
@@ -144,4 +143,66 @@ form {
 
 #button_show_more:hover {
   background-color: rgba(255, 68, 0, 0.801);
+}
+
+/* MEME GENERATOR */
+
+.generate-random-meme-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  /* grid-column: 3 / span 4; */
+}
+
+
+.form-generate-meme {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+#generate-meme {
+  border: none;
+  cursor: pointer;
+  border-left: 3px solid black;
+  padding: 6px 20px;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  background-color: rgba(137, 43, 226, 0.556);
+  color: white;
+}
+
+#generate-meme:hover {
+  background-color: orangered;
+  color: black;
+}
+
+#meme-description {
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+
+#meme-title {
+  text-decoration: underline;
+  padding-bottom: 2px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.meme-details {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+}
+
+.meme-details img {
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
 }
