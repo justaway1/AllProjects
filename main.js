@@ -65,7 +65,7 @@ async function generateMeme () {
   const response = await fetch('https://meme-api.com/gimme/wholesomememes')
   const data = await response.json()
 
-  memeTitle.textContent = ` Title: ${data.title}`
+  memeTitle.textContent = ` Title: 3\${data.title}`
   memeImage.src = data.url
   memeDesc.textContent = `Meme by: ${data.author}`
 }
