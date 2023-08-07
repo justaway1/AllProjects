@@ -231,18 +231,21 @@ form {
 .calculator-screen {
   width: 100%;
   height: 150px;
-  display: flex
+  display: flex;
+  padding-right: 20px;
+  background: black;
 }
 
 #calculator-screen {
   width: 100%;
   height: 100%;
-  font-size: 2rem;
+  font-size: 3.5rem;
   outline: none;
   border: none;
   text-align: right;
   background: black;
   pointer-events: none;
+  color: white;
 }
 
 .calculator-buttons {

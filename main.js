@@ -65,11 +65,30 @@ async function generateMeme () {
   const response = await fetch('https://meme-api.com/gimme/wholesomememes')
   const data = await response.json()
 
-  memeTitle.textContent = ` Title: 3\${data.title}`
+  memeTitle.textContent = ` Title: ${data.title}`
   memeImage.src = data.url
   memeDesc.textContent = `Meme by: ${data.author}`
 }
 memeBtn.addEventListener('click', e => {
   e.preventDefault()
   generateMeme()
+})
+
+// CALCULATOR
+
+const calcScreen = document.querySelector('#calculator-screen')
+const calcButtons = document.querySelector('.calculator-buttons')
+
+calcButtons.addEventListener('click', e => {
+  let value = e.target.dataset.num
+  if (e.target.classList.contains('btn')) {
+    calcScreen.value += value
+  }
+  if (e.target.classList.contains('btn-equal')) {
+    let result = eval(calcScreen.value)
+    calcScreen.value = result
+  }
+  if (e.target.classList.contains('btn-clear')) {
+    calcScreen.value = ''
+  }
 })
